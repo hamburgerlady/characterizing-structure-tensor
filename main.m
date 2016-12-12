@@ -525,8 +525,15 @@ for imnr = 1:nn,
 end
 fprintf('\n');
 figure(7);
-imshow([imins{1} imins{2} imins{3};imouts{1} imouts{2} imouts{3};...
-    imins{4} imins{5} imins{6};imouts{4} imouts{5} imouts{6}]);
+clf
+for iii = 1:6,
+    subplot(2,3,iii);
+    imshow([imins{iii};imouts{iii}]);
+end
+
+% [M,N,~]=size(imins{1});
+% imshow([imins{1} imins{2} imins{3};imouts{1} imouts{2} imouts{3};...
+%     imins{4} imresize(imins{5},[M N]) imresize(imins{6},[M N]);imouts{4} imresize(imouts{5},[M N]) imresize(imouts{6},[M N])]);
 
 
 %%
