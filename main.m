@@ -1,5 +1,5 @@
 addpath('source');
-
+screenSize = get(0,'Screensize');
 
 %% plotfigs
 
@@ -155,6 +155,8 @@ bar(b_err_sum,h_err_sum,'c');
 xlabel('Fig. 2. Histogram of the logarithm of the Kullback-Leibler divergence between data histograms and...');
 subplot(1,2,2);
 bar(b_err_prod,h_err_prod,'c');
+curf = gcf;
+set(curf,'position',[10 100 screenSize(3)*0.7 screenSize(4)*0.3])
 
 %%
 disp('Creating Fig. 3 ...');
@@ -201,6 +203,7 @@ set(ll2,'LineWidth',2);
 
 legend({'True distribution PDF','Approximate Gamma distribution PDF'})
 xlabel('Fig. 3. The figure shows the model distribution and the exact theoretical distribution ...');
+
 
 %%
 disp('Creating Fig. 4 ...');
@@ -334,6 +337,9 @@ title('J_{12} smoothed')
 subplot(1,4,2);
 xlabel('Fig. 4. The figure shows histograms of data  and model distributions. From left to right: the unsmoothed j_{11} and j_{12}, the smoothed j_{11} and j_{12}.');
 
+curf = gcf;
+set(curf,'position',[20 120 screenSize(3)*0.8 screenSize(4)*0.3])
+
 
 %%
 disp('Creating Fig. 5 ...');
@@ -346,12 +352,12 @@ subplot(3,2,1);
 imagesc(im0)
 colormap(gray(256))
 axis off
-axis equal
+axis square
 subplot(3,2,2);
 imagesc(im);
 colormap(gray(256))
 axis off
-axis equal
+axis square
 
 nn = 200;
 sigma2 = 1.7;
@@ -481,6 +487,9 @@ title('Eigenvalue 2')
 subplot(3,2,5);
 xlabel('Fig. 5. Top: The original image and the input image with added...');
 
+curf = gcf;
+set(curf,'position',[40 140 screenSize(3)*0.4 screenSize(4)*0.8])
+
 %%
 disp('Creating Fig. 6 ...');
 figure(6);
@@ -499,6 +508,8 @@ plot([10 10],[0 4],'k--');
 xlabel('Fig. 6. Depiction of the smoothing kernel construction...'); 
 subplot(1,2,2);
 drawkernel;
+curf = gcf;
+set(curf,'position',[60 160 screenSize(3)*0.8 screenSize(4)*0.4])
 
 %%
 disp('Creating Fig. 7 using 6 images ...');
