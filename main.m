@@ -482,9 +482,29 @@ subplot(3,2,5);
 xlabel('Fig. 5. Top: The original image and the input image with added...');
 
 %%
+disp('Creating Fig. 6 ...');
+figure(6);
+clf
+subplot(1,2,1);
+xx = 0:0.1:100;
+ll = plot(xx,min(4,(4-0.5)*exp(-(0.5/10)*(xx-10))+0.5));
+set(ll,'Color',[0.05 0.5 0]);
+set(ll,'LineWidth',2);
+hold on
+axis([0 105 0 4.5])
+plot([16.7 16.7 0],[0 3 3],'k');
+plot([48.9 48.9 0],[0 1 1],'k')
+plot([0 103],[0.5 0.5],'k--');
+plot([10 10],[0 4],'k--');
+xlabel('Fig. 6. Depiction of the smoothing kernel construction...'); 
+subplot(1,2,2);
+drawkernel;
+
+%%
 disp('Creating Fig. 7 using 6 images ...');
 
-imnames = {'data/DSC03946_sm.jpg','data/DSC03956.jpg','data/DSC04025_sm.jpg','data/DSC02634.jpg','data/IMG_1084.jpg','data/IMG_1265.jpg'};
+
+imnames = {'data/DSC03946.jpg','data/DSC03956.jpg','data/DSC04025.jpg','data/DSC02634.jpg','data/IMG_1084.jpg','data/IMG_1265.jpg'};
 nn = length(imnames);
 imins = cell(1,nn);
 imouts = cell(1,nn);
@@ -507,6 +527,13 @@ fprintf('\n');
 figure(7);
 imshow([imins{1} imins{2} imins{3};imouts{1} imouts{2} imouts{3};...
     imins{4} imins{5} imins{6};imouts{4} imouts{5} imouts{6}]);
+
+
+%%
+disp('Creating Fig. 8 ...');
+figure(8);
+clf
+imshow([imins{1}(501:1200,1001:2000,:)*7 imouts{1}(501:1200,1001:2000,:)]);
 
 
 
