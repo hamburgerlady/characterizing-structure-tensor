@@ -3,6 +3,8 @@ This repository contains code for reproducing all results from the paper
 
 "Characterizing the structure tensor using gamma distributions", Magnus Oskarsson, in Proc. Intl. Conf. Pattern Recognition, 2016, Cancun, Mexico.
 
+https://github.com/hamburgerlady/characterizing-structure-tensor/structure_stats_final.pdf
+
 Source code in Matlab is in the folder source, and needed data is in the folder data.
 Running 
 
