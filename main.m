@@ -521,6 +521,7 @@ imins = cell(1,nn);
 imouts = cell(1,nn);
 stds =[1.5 1 1 1.5 2 1.5];
 fprintf('Processing image nr ');
+
 for imnr = 1:nn,        
     fprintf('%d ',imnr);
     im = imread(imnames{imnr});
@@ -529,6 +530,9 @@ for imnr = 1:nn,
     for iii = 1:3,
         im_sm = structure_smooth(double(im(:,:,iii)),stds(imnr));
         im3_sm(:,:,iii)=im_sm;
+    end
+    if imnr == 1,
+        im1_smooth = im3_sm;
     end
     imout1 = dtm_rgb(im3_sm,256,1,2000);
 %        imout2 = dtm_rgb(im3_sm,256,0,2000);
@@ -551,7 +555,8 @@ end
 disp('Creating Fig. 8 ...');
 figure(8);
 clf
-imshow([imins{1}(501:1200,1001:2000,:)*7 imouts{1}(501:1200,1001:2000,:)]);
+%imshow([imins{1}(501:1200,1001:2000,:)*7 imouts{1}(501:1200,1001:2000,:)]);
+imshow([imins{1}(501:1200,1001:2000,:)*7 im1_smooth(501:1200,1001:2000,:)*7]);
 
 
 
